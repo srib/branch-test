@@ -2,8 +2,7 @@ name: Build and Deploy
 
 on:
   push:
-    branches:
-      - master
+    branches: ["master"]
 
 
 jobs:
@@ -13,19 +12,9 @@ jobs:
     strategy:
       matrix:
         tag: ${{ github.ref }}  # Inherits tag name from push event
-        base_image:
-          - test:python:3.9  # Base image for test tags
-          - prod:python:3.8  # Base image for prod tags
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check tag type
-        run: |
-          echo "Tag: ${{ matrix.tag }}"
-          if [[ ${matrix.tag//refs\/tags\//} =~ ^test_v ]]; then
-            echo "Building test image"
-          else
-            echo "Building production image"
-          fi
-
+      - name: Print github.ref
+        run: echo ${{ matrix.tag }}
