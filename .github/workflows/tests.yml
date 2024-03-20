@@ -22,6 +22,7 @@ jobs:
 
       - name: Check tag type
         run: |
+          echo "Tag: ${{ matrix.tag }}"
           if [[ ${matrix.tag//refs\/tags\//} =~ ^test_v ]]; then
             echo "Building test image"
           else
