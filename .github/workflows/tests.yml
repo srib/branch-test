@@ -3,8 +3,8 @@ name: Build and Deploy
 on:
   push:
     tags:
-      - 'test_v*'
-      - 'prod_v*'
+      - 'refs/tags/test_v*'
+      - 'refs/tags/prod_v*'
   pull_request:
     branches:
       - '*'
