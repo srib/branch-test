@@ -2,16 +2,14 @@ name: Build and Deploy
 
 on:
   push:
-    branches: ["master"]
+    tags: ["test_v*"]
 
 
 jobs:
   tests:
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     tag: ${{ github.ref }}  # Inherits tag name from push event
+
 
     steps:
       - uses: actions/checkout@v3
