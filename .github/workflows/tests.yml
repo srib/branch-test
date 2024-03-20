@@ -2,12 +2,15 @@ name: Build and Deploy
 
 on:
   push:
-    # tags:
-    #   - 'test_v[0-9]+.[0-9]+.[0-9]+'
-    #   - 'prod_v[0-9]+.[0-9]+.[0-9]+' 
+    tags:
+      - 'test_v*'
+      - 'prod_v*'
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
-  build-and-deploy:
+  tests:
     runs-on: ubuntu-latest
 
     strategy:
