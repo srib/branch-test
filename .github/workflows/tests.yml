@@ -1,10 +1,10 @@
 name: Build and Deploy
 
-on: push # Triggers the workflow on push events
-#   push:
-#     tags:
-#       - 'test_v[0-9]+.[0-9]+.[0-9]+'  # Matches tags like test_v1.2.3
-#       - 'prod_v[0-9]+.[0-9]+.[0-9]+'  # Matches tags like prod_v1.2.3
+on:
+  push:
+    tags:
+      - 'test_v[0-9]+.[0-9]+.[0-9]+'  # Matches tags like test_v1.2.3
+      - 'prod_v[0-9]+.[0-9]+.[0-9]+'  # Matches tags like prod_v1.2.3
 
 jobs:
   build-and-deploy:
