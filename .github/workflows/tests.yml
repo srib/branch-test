@@ -2,18 +2,19 @@ name: Build and Deploy
 
 on:
   push:
-    tags: ["test_v*"]
-
+    tags: ["test_v*", "prod_v*"]
 
 jobs:
   tests:
     runs-on: ubuntu-latest
 
-    
-
-
     steps:
       - uses: actions/checkout@v3
 
-      - name: Print github.ref_name
-        run: echo ${{ github.ref_name }}
+      - name: Greet Based on Tag
+        run: |
+          if [[ "${{ github.ref_name }}" == test* ]]; then
+            echo "hello"
+          elif [[ "${{ github.ref_name }}" == prod* ]]; then
+            echo "hello dangerously"
+          fi
