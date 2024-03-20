@@ -9,10 +9,11 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
+    
 
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Print github.ref
-        run: echo ${{ github.ref }}
+      - name: Print github.ref_name
+        run: echo ${{ github.ref_name }}
