@@ -9,12 +9,12 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        tag: ${{ github.ref }}  # Inherits tag name from push event
+    # strategy:
+    #   matrix:
+    #     tag: ${{ github.ref }}  # Inherits tag name from push event
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Print github.ref
-        run: echo ${{ matrix.tag }}
+        run: echo ${{ github.ref }}
